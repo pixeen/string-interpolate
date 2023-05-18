@@ -19,6 +19,10 @@
   },
   "main": "./lib/index.js",
   "types": "./lib/index.d.js",
+  "files": [
+    "lib",
+    "README.md"
+  ],
   "devDependencies": {
     "@jest/globals": "^29.5.0",
     "@types/jest": "^29.5.1",
