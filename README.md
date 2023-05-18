@@ -7,6 +7,8 @@ It's a function that takes a `string`, a `data object` and a `regular expression
 - If the string doesn't match the regular expression, it returns the string
   unchanged.
 
+The default regular expression is `/{{([^}]+)}}/g` which matches on single curly braces.
+
 ## Usage
 
 ```javascript
