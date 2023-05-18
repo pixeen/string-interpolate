@@ -12,15 +12,37 @@ describe('interpolate', () => {
     const asExpected = 'x z'
     expect(response).toBe(asExpected)
   })
-  it('interpolates a string with a number as variable', () => {
+  it('interpolates a string with data and a custom regexp', () => {
     // Arrange
-    const value = 'x {1}'
-    const data = { 1: '1' }
-    const regexp = /{([^{}]*)}/g
+    const value = 'x [y]'
+    const data = { y: 'z' }
+    const regexp = /\[([^[\]]*)\]/g
     // Act
     const response = interpolate(value, data, regexp)
     // Assert
-    const asExpected = 'x 1'
+    const asExpected = 'x z'
+    expect(response).toBe(asExpected)
+  })
+  it('interpolates a string with data and a custom regexp with multiple matches', () => {
+    // Arrange
+    const value = 'x [y] [y]'
+    const data = { y: 'z' }
+    const regexp = /\[([^[\]]*)\]/g
+    // Act
+    const response = interpolate(value, data, regexp)
+    // Assert
+    const asExpected = 'x z z'
+    expect(response).toBe(asExpected)
+  })
+  it('interpolates a string with data and a custom regexp with multiple matches and multiple data', () => {
+    // Arrange
+    const value = 'x [y] [y]'
+    const data = { y: 'z' }
+    const regexp = /\[([^[\]]*)\]/g
+    // Act
+    const response = interpolate(value, data, regexp)
+    // Assert
+    const asExpected = 'x z z'
     expect(response).toBe(asExpected)
   })
 })

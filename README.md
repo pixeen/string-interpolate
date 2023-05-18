@@ -10,7 +10,7 @@ unchanged.
 ```javascript
 import interpolate from '@pixeen/string-interpolate'
 
-const regexp = /\{(\w+)\}/g
 const data = { name: 'World' }
-interpolate('Hello {name}!', data, regexp) // => 'Hello World!'
+const regexp = /\{{([^}]+)}}/g // Match on double curly braces
+interpolate('Hello {{name}}!', data, regexp) // => 'Hello World!'
 ```
