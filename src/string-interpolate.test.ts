@@ -44,14 +44,4 @@ describe('string interpolate', () => {
     const asExpected = 'x z z'
     expect(response).toBe(asExpected)
   })
-  it('interpolates a string with an index and array data', () => {
-    // Arrange
-    const value = 'x {0} {1}'
-    const data = ['a', 'b']
-    // Act
-    const response = stringInterpolate(value, data)
-    // Assert
-    const asExpected = 'x a b'
-    expect(response).toBe(asExpected)
-  })
 })

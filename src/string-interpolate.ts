@@ -8,14 +8,9 @@
  */
 const stringInterpolate = (
   str: string,
-  data: Record<string, string> | Array<string>,
+  data: Record<string, string>,
   expr = /\{([^}]+)}/g
 ): string => {
-  if (Array.isArray(data)) {
-    return str.replace(expr, (match: string, key) =>
-      typeof data[key] === 'string' ? data[key] : match
-    )
-  }
   return str.replace(expr, (match: string, key) =>
     typeof data[key] === 'string' ? data[key] : match
   )
