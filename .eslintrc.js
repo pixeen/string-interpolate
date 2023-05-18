@@ -17,8 +17,6 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'off',
   },
   env: {
-    browser: true,
     node: true,
-    es2021: true,
   },
 }
