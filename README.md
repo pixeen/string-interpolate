@@ -7,9 +7,10 @@ unchanged.
 
 ## Usage
 
-```typescript
+```javascript
 import interpolate from '@pixeen/string-interpolate'
 
-interpolate('Hello {name}!', { name: 'World' }, new RegExp(/\{(\w+)\}/g))
+const regexp = /\{(\w+)\}/g
+interpolate('Hello {name}!', {name: 'World'}, regexp)
 // => 'Hello World!'
 ```
