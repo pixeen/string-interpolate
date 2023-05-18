@@ -12,7 +12,8 @@
     "test": "jest",
     "lint": "eslint src --fix",
     "format": "prettier . --write ",
-    "fix": "yarn format && yarn lint"
+    "fix": "yarn format && yarn lint",
+    "push-refactor": "yarn build && git add . && git commit -am 'Refactor' && git push"
   },
   "repository": {
     "type": "git",

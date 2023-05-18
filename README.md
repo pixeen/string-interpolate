@@ -1,13 +1,14 @@
 # String Interpolate
 
-It's a function that takes a `string`, a `data object` and a `regular expression` as arguments.
+It's a function that takes a `string`, a `data object`, and a `regular expression` as arguments.
 
-- If the string matches the regular expression, it returns the string with
-  the data object interpolated into it.
-- If the string doesn't match the regular expression, it returns the string
-  unchanged.
+- If the input string matches the regular expression, the function will return the string with the data object
+  interpolated into it.
+- However, if the input string does not match the regular expression, the function will simply return the original
+  string unchanged.
 
-The default regular expression is `/{{([^}]+)}}/g` which matches on single curly braces.
+The default regular expression is `/{{([^}]+)}}/g`, which matches on single curly braces. You can pass in your own
+regular expression if you want to match on something else.
 
 ## Usage
 
