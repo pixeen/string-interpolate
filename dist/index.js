@@ -1,4 +1,3 @@
-import './global'
-import interpolate from './interpolate'
-export default { interpolate: interpolate }
+import interpolate from './interpolate';
+export default interpolate;
 //# sourceMappingURL=index.js.map

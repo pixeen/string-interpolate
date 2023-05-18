@@ -7,10 +7,46 @@ unchanged.
 
 ## Usage
 
-```javascript
-import interpolate from '@pixeen/string-interpolate'
+### Basic
 
-const data = { name: 'World' }
-const regexp = /\{{([^}]+)}}/g // Match on double curly braces
-interpolate('Hello {{name}}!', data, regexp) // => 'Hello World!'
+```javascript
+interpolate('Hello {name}!', { name: 'World' })
+// => 'Hello World!'
+```
+
+### With a custom Regex matcher
+
+```javascript
+// Match on double curly braces (instead of single)
+const myRegExp = /\{{([^}]+)}}/g
+interpolate('Hello {{name}}!', { name: 'World' }, myRegExp)
+// => 'Hello World!'
+```
+
+### The String prototype
+
+If you extend the String prototype, you can use the function as a method on any string like in this example:
+
+```javascript
+'Hello {name}!'.interpolate({ name: 'World' })
+// => 'Hello World!'
+```
+
+#### Here is how you would do it
+
+```typescript
+import interpolate from './interpolate'
+
+declare global {
+  interface String {
+    interpolate(data: { [key: string]: string }, regexp: RegExp): string
+  }
+}
+
+String.prototype.interpolate = function (
+  data: { [key: string]: string },
+  regexp
+): string {
+  return interpolate(String(this), data, regexp)
+}
 ```
