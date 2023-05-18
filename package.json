@@ -8,10 +8,10 @@
   },
   "scripts": {
     "build": "cross-env CI=true tsc",
-    "test": "cross-env CI=true jest --coverage --verbose",
+    "test": "cross-env CI=true jest",
     "lint": "eslint src --ext .ts --ext .tsx",
     "format": "prettier . --write",
-    "fix": "cross-env CI=true yarn format --write && cross-env CI=true yarn lint --fix",
+    "fix": "cross-env CI=true npm run format --write && cross-env CI=true npm run lint --fix",
     "prepare": "husky install"
   },
   "repository": {
