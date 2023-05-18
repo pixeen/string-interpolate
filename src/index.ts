@@ -1,3 +1,3 @@
-import interpolate from './interpolate'
+import stringInterpolate from './string-interpolate'
 
-export default interpolate
+export default stringInterpolate

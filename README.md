@@ -1,29 +1,20 @@
 # String Interpolate
 
-It's a function that takes a string, a data object and a regular expression as arguments. The regular expression is used
-to match the string against the data object. If the string matches the regular expression, it returns the string with
-the data object interpolated into it. If the string doesn't match the regular expression, it returns the string
-unchanged.
+It's a function that takes a `string`, a `data object` and a `regular expression` as arguments.
+
+- If the string matches the regular expression, it returns the string with
+  the data object interpolated into it.
+- If the string doesn't match the regular expression, it returns the string
+  unchanged.
 
 ## Usage
 
-### Basic
-
 ```javascript
-interpolate('Hello {name}!', { name: 'World' })
+stringInterpolate('Hello {name}!', { name: 'World' })
 // => 'Hello World!'
 ```
 
-### With a custom Regex matcher
-
-```javascript
-// Match on double curly braces (instead of single)
-const myRegExp = /\{{([^}]+)}}/g
-interpolate('Hello {{name}}!', { name: 'World' }, myRegExp)
-// => 'Hello World!'
-```
-
-### The String prototype
+### Extending the String prototype
 
 If you extend the String prototype, you can use the function as a method on any string like in this example:
 
@@ -35,7 +26,7 @@ If you extend the String prototype, you can use the function as a method on any 
 #### Here is how you would do it
 
 ```typescript
-import interpolate from './interpolate'
+import stringInterpolate from './stringInterpolate'
 
 declare global {
   interface String {
@@ -47,6 +38,15 @@ String.prototype.interpolate = function (
   data: { [key: string]: string },
   regexp
 ): string {
-  return interpolate(String(this), data, regexp)
+  return stringInterpolate(String(this), data, regexp)
 }
+```
+
+### Custom regular expression
+
+For example match on double curly braces (instead of single)
+
+```javascript
+stringInterpolate('Hello {{name}}!', { name: 'World' }, /\{{([^}]+)}}/g)
+// => 'Hello World!'
 ```

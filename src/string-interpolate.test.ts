@@ -1,13 +1,12 @@
-import interpolate from './interpolate'
+import stringInterpolate from './string-interpolate'
 
-describe('interpolate', () => {
+describe('string interpolate', () => {
   it('interpolates a string with data', () => {
     // Arrange
     const value = 'x {y}'
     const data = { y: 'z' }
-    const regexp = /{([^{}]*)}/g
     // Act
-    const response = interpolate(value, data, regexp)
+    const response = stringInterpolate(value, data)
     // Assert
     const asExpected = 'x z'
     expect(response).toBe(asExpected)
@@ -18,7 +17,7 @@ describe('interpolate', () => {
     const data = { y: 'z' }
     const regexp = /\[([^[\]]*)\]/g
     // Act
-    const response = interpolate(value, data, regexp)
+    const response = stringInterpolate(value, data, regexp)
     // Assert
     const asExpected = 'x z'
     expect(response).toBe(asExpected)
@@ -29,7 +28,7 @@ describe('interpolate', () => {
     const data = { y: 'z' }
     const regexp = /\[([^[\]]*)\]/g
     // Act
-    const response = interpolate(value, data, regexp)
+    const response = stringInterpolate(value, data, regexp)
     // Assert
     const asExpected = 'x z z'
     expect(response).toBe(asExpected)
@@ -40,7 +39,7 @@ describe('interpolate', () => {
     const data = { y: 'z' }
     const regexp = /\[([^[\]]*)\]/g
     // Act
-    const response = interpolate(value, data, regexp)
+    const response = stringInterpolate(value, data, regexp)
     // Assert
     const asExpected = 'x z z'
     expect(response).toBe(asExpected)
