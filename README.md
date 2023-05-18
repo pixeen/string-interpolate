@@ -11,6 +11,6 @@ unchanged.
 import interpolate from '@pixeen/string-interpolate'
 
 const regexp = /\{(\w+)\}/g
-interpolate('Hello {name}!', { name: 'World' }, regexp)
-// => 'Hello World!'
+const data = { name: 'World' }
+interpolate('Hello {name}!', data, regexp) // => 'Hello World!'
 ```
