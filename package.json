@@ -19,7 +19,7 @@
     "url": "https://github.com/pixeen/string-interpolate.git"
   },
   "main": "./lib/index.js",
-  "types": "./lib/index.d.js",
+  "types": "./lib/index.d.ts",
   "files": [
     "lib",
     "README.md"
