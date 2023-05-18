@@ -10,6 +10,6 @@ unchanged.
 ```typescript
 import interpolate from '@pixeen/string-interpolate'
 
-interpolate('Hello {name}!', { name: 'World' }, /\{(\w+)\}/g)
+interpolate('Hello {name}!', {name: 'World'}, new RegExp(/\{(\w+)\}/g))
 // => 'Hello World!'
 ```
